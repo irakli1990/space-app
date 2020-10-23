@@ -18,7 +18,7 @@ export class PhotoFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      apiKey: new FormControl('d76b1061fb82411734f6c2062559a3d0', {
+      apiKey: new FormControl('82a11a655207280d9c295129b1e8f480', {
         validators: [Validators.required]
       }),
       userId: new FormControl('136485307@N06', {

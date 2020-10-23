@@ -8,5 +8,10 @@
 
 <div class="hangar-section">
   <app-pilot-room (selected)="selectedPilot = $event"></app-pilot-room>
+  <div class="sub-nav">
+    <a routerLink="production" routerLinkActive="active">Production</a>
+    &nbsp;
+    <a routerLink="destruction" routerLinkActive="active">Destruction</a>
+  </div>
   <router-outlet></router-outlet>
 </div>
