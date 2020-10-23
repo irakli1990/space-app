@@ -1,0 +1,12 @@
+<h1>Hangar</h1>
+<div class="hangar-section">
+  <app-space-ship *ngFor="let spaceShip of spaceShips | async" [spaceShip]="spaceShip">
+    <button *ngIf="selectedPilot && !spaceShip.pilot" (click)="assignPilot(spaceShip)">Pilotuj</button>
+    <button *ngIf="spaceShip.pilot" (click)="deassignPilot(spaceShip)">Opuść</button>
+  </app-space-ship>
+</div>
+
+<div class="hangar-section">
+  <app-pilot-room (selected)="selectedPilot = $event"></app-pilot-room>
+  <router-outlet></router-outlet>
+</div>
