@@ -3,7 +3,7 @@ import {FormControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 export class CodeValidator {
 
   static containsDigit(formControl: FormControl): ValidationErrors {
-    return /[0-6]/.test(formControl.value) ? null : {containsDigit: true};
+    return /[1-6]/.test(formControl.value) ? null : {containsDigit: true};
   }
 
   static wordsLimit(limit: number): ValidatorFn {

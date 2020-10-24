@@ -28,7 +28,7 @@ export class PhotoFormComponent implements OnInit {
   }
 
 
-  send() {
+  send(): void {
     this.formdata.emit(this.form.value);
   }
 }

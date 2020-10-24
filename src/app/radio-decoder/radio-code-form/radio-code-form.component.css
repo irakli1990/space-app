@@ -1,3 +1,8 @@
+
+:host {
+  display: flex;
+}
+
 .control-label {
   display: inline-block;
   width: 100px;
@@ -10,7 +15,8 @@
 .error {
   color: red;
 }
-
-img {
-  max-height: 80px;
+ul {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
 }

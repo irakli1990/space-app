@@ -18,7 +18,7 @@ export class PilotFormComponent implements OnInit {
     private pilotService: PilotService,
     private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.data
       .pipe(map((data) => data.pilot))
       .subscribe((pilot) => {
