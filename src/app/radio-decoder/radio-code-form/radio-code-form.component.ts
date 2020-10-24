@@ -2,13 +2,17 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CodeValidator } from '../code-validator';
 
+export interface Code {
+    code: string;
+}
+
 @Component({
     selector: 'app-radio-code-form',
     templateUrl: './radio-code-form.component.html',
     styleUrls: ['./radio-code-form.component.css'],
 })
 export class RadioCodeFormComponent implements OnInit {
-    @Output() code = new EventEmitter<string>();
+    @Output() code = new EventEmitter<Code>();
 
     form: FormGroup;
 
@@ -26,5 +30,7 @@ export class RadioCodeFormComponent implements OnInit {
         });
     }
 
-    checkCode(): void {}
+    checkCode(): void {
+        this.code.emit(this.form.value);
+    }
 }

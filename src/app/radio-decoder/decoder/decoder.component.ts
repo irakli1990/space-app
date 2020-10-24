@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DecoderService } from '../decoder.service';
+import { Subject } from 'rxjs';
+import { Code } from '../radio-code-form/radio-code-form.component';
 
 @Component({
     selector: 'app-decoder',
@@ -6,7 +9,29 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./decoder.component.css'],
 })
 export class DecoderComponent implements OnInit {
-    constructor() {}
+    constructor(private decoderService: DecoderService) {
+        this.formCode = new Subject<number[]>();
+    }
 
-    ngOnInit(): void {}
+    randomNumbers: number[] = [];
+    formCode: Subject<number[]>;
+
+    ngOnInit(): void {
+        this.randomNumbers = this.decoderService.generateCode();
+    }
+
+    addCode(data: Code): void {
+        console.log(data);
+        const codeArray: number[] = [];
+        for (const x of data.code) {
+            codeArray.push(Number(x));
+        }
+        console.log(codeArray);
+        this.formCode.next(codeArray);
+    }
+
+    compare(): void {
+        const array = this.formCode.subscribe(value => new Array(value));
+        console.log(array);
+    }
 }

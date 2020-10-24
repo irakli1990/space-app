@@ -1,1 +1,4 @@
-<app-radio-code-form></app-radio-code-form>
+<app-radio-code-form (code)="addCode($event)"></app-radio-code-form>
+<ul *ngFor="let items of randomNumbers">
+  <li>{{items}}</li>
+</ul>
