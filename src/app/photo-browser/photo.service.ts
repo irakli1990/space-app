@@ -6,42 +6,44 @@ import { map } from 'rxjs/operators';
 import { NasaPhotos } from './photo';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class PhotoService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-
-  getPhotos(user_id: string,
-    api_key: string,
-    page: number,
-    per_page: number,
-    method = 'flickr.people.getPhotos',
-    format = 'json',
-    extras = 'url_l',
-    nojsoncallback = '1'): Observable<NasaPhotos> {
-    var params = {
-      user_id: String(user_id),
-      api_key: String(api_key),
-      page: String(page),
-      per_page: String(per_page),
-      extras,
-      format,
-      method,
-      nojsoncallback,
+    getPhotos(
+        userId: string,
+        apiKey: string,
+        page: number,
+        perPage: number,
+        method = 'flickr.people.getPhotos',
+        format = 'json',
+        extras = 'url_l',
+        nojsoncallback = '1'
+    ): Observable<NasaPhotos> {
+        const params = {
+            user_id: String(userId),
+            api_key: String(apiKey),
+            page: String(page),
+            per_page: String(perPage),
+            extras,
+            format,
+            method,
+            nojsoncallback,
+        };
+        console.log(params);
+        return this.http
+            .get<NasaPhotosObject>(`https://api.flickr.com/services/rest`, {
+                params,
+                headers: {
+                    Accept: 'application/json',
+                },
+            })
+            .pipe(
+                map(photos => {
+                    console.log(photos);
+                    return new NasaPhotos(photos);
+                })
+            );
     }
-    console.log(params);
-    return this.http.get<NasaPhotosObject>(`https://api.flickr.com/services/rest`, {
-      params: params, headers: {
-        Accept: 'application/json'
-      }
-    }).pipe(
-      map((photos) => {
-        console.log(photos);
-        return new NasaPhotos(photos)
-      })
-    );
-  }
-
 }

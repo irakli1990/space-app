@@ -6,15 +6,13 @@ import { PhotoComponent } from './photo/photo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhotoBrowserRoutingModule } from './photo-browser.routing.module';
 
-
-
 @NgModule({
-  declarations: [PhotoFormComponent, PhotoComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    PhotoBrowserRoutingModule,
-    HttpClientModule
-  ]
+    declarations: [PhotoFormComponent, PhotoComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        PhotoBrowserRoutingModule,
+        HttpClientModule,
+    ],
 })
-export class PhotoBrowserModule { }
+export class PhotoBrowserModule {}

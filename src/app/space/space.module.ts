@@ -1,4 +1,4 @@
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,27 +13,23 @@ import { EngineersRoomComponent } from './engineers-room/engineers-room.componen
 import { DestructionRoomComponent } from './destruction-room/destruction-room.component';
 import { PilotFormComponent } from './pilot-form/pilot-form.component';
 
-
 @NgModule({
-  declarations: [
-    HangarComponent,
-    SpaceShipComponent,
-    PilotComponent,
-    PilotRoomComponent,
-    EngineersRoomComponent,
-    DestructionRoomComponent,
-    PilotFormComponent
-  ],
-  imports: [
-    CommonModule,
-    SpaceRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    SharedModule
-  ],
-  exports: [
-    HangarComponent,
-    SpaceShipComponent,
-  ]
+    declarations: [
+        HangarComponent,
+        SpaceShipComponent,
+        PilotComponent,
+        PilotRoomComponent,
+        EngineersRoomComponent,
+        DestructionRoomComponent,
+        PilotFormComponent,
+    ],
+    imports: [
+        CommonModule,
+        SpaceRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        SharedModule,
+    ],
+    exports: [HangarComponent, SpaceShipComponent],
 })
-export class SpaceModule { }
+export class SpaceModule {}

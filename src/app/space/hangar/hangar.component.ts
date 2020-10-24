@@ -7,30 +7,26 @@ import { SpaceShip } from '../space-ship';
 import { SpaceShipService } from '../space-ship.service';
 
 @Component({
-  selector: 'app-hangar',
-  templateUrl: './hangar.component.html',
-  styleUrls: ['./hangar.component.css']
+    selector: 'app-hangar',
+    templateUrl: './hangar.component.html',
+    styleUrls: ['./hangar.component.css'],
 })
 export class HangarComponent implements OnInit {
-  @ViewChild(PilotRoomComponent) pilotRoom: PilotRoomComponent;
-  spaceShips = this.spaceShipService.hangarShips;
-  selectedPilot: Pilot = null;
+    @ViewChild(PilotRoomComponent) pilotRoom: PilotRoomComponent;
+    spaceShips = this.spaceShipService.hangarShips;
+    selectedPilot: Pilot = null;
 
+    constructor(private spaceShipService: SpaceShipService) {}
 
-  constructor(private spaceShipService: SpaceShipService) { }
+    ngOnInit(): void {}
 
-  ngOnInit(): void {
+    deassignPilot(spaceShip: SpaceShip): void {
+        this.pilotRoom.pilotReturn(spaceShip.pilot);
+        spaceShip.pilot = null;
+    }
 
-  }
-
-  deassignPilot(spaceShip: SpaceShip): void {
-    this.pilotRoom.pilotReturn(spaceShip.pilot);
-    spaceShip.pilot = null;
-  }
-
-  assignPilot(spaceShip: SpaceShip) {
-    spaceShip.pilot = this.selectedPilot;
-    this.pilotRoom.pilotLeave();
-  }
-
+    assignPilot(spaceShip: SpaceShip) {
+        spaceShip.pilot = this.selectedPilot;
+        this.pilotRoom.pilotLeave();
+    }
 }

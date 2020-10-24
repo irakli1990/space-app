@@ -1,23 +1,21 @@
-import { Directive, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appOpacity]'
+    selector: '[appOpacity]',
 })
 export class OpacityDirective {
+    @Input() distance: number;
+    opacityValue = 1.0;
 
-  @Input() distance: number;
-  opasityValue: number = 1.0;
-  constructor() {
+    constructor() {}
 
-  }
-
-  @HostBinding('style.opacity') get opacity() {
-    console.log(this.distance)
-    if (this.distance <= 10) {
-      this.opasityValue = 0.0;
-      return String(this.opasityValue);
-    } else {
-      return String(this.opasityValue);
+    @HostBinding('style.opacity') get opacity(): string {
+        console.log(this.distance);
+        if (this.distance <= 10) {
+            this.opacityValue = 0.0;
+            return String(this.opacityValue);
+        } else {
+            return String(this.opacityValue);
+        }
     }
-  }
 }

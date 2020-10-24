@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server --watch ./src/api/db.json --port 9020"
+    "api": "json-server --watch ./src/api/db.json --port 9020",
+    "format-ts": "prettier --write **/*.ts",
+    "format-html": "prettier --write **/*.html",
+    "format-check": "prettier --check **/*.ts"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +44,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "prettier": "^2.1.2",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

@@ -4,15 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PlanetDetectorComponent } from './planet-detector.component';
 import { PlanetDetectorRootingModule } from './planet-detector-routing.module';
 
-
-
 @NgModule({
-  declarations: [PlanetDetectorComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    PlanetDetectorRootingModule
-  ],
-  exports: [PlanetDetectorComponent]
+    declarations: [PlanetDetectorComponent],
+    imports: [CommonModule, SharedModule, PlanetDetectorRootingModule],
+    exports: [PlanetDetectorComponent],
 })
-export class PlanetDetectorModule { }
+export class PlanetDetectorModule {}

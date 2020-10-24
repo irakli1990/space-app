@@ -8,17 +8,9 @@ import { A2sCommModule } from 'a2s-comm';
 import { BlackHoleComponent } from './black-hole/black-hole.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BlackHoleComponent
-  ],
-  imports: [
-    BrowserModule,
-    SpaceModule,
-    AppRoutingModule,
-    A2sCommModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, BlackHoleComponent],
+    imports: [BrowserModule, SpaceModule, AppRoutingModule, A2sCommModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
