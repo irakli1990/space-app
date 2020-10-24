@@ -28,10 +28,10 @@ export class DecoderComponent implements OnInit {
         }
         console.log(codeArray);
         this.formCode.next(codeArray);
+        this.compare();
     }
 
     compare(): void {
-        const array = this.formCode.subscribe(value => new Array(value));
-        console.log(array);
+        this.formCode.subscribe(value => new Array(value));
     }
 }
